@@ -3,6 +3,12 @@
 #include <stdio.h>
 #include "lists.h"
 
+/**
+ * insert_node - adds a new node in a sorted list
+ * @head: pointer to pointer of first node of listint_t list
+ * @number: integer to be included in new node
+ * Return: address of the new element or NULL if it fails
+ */
 listint_t *insert_node(listint_t **head, int number)
 {
     listint_t *current;
@@ -26,7 +32,6 @@ listint_t *insert_node(listint_t **head, int number)
             new->next = current->next;
             current->next = new;
             break;
-            printf("%i linked %i number\n", current->next->n, number);
         }
         if (current->next == NULL)
             current->next = new;
@@ -35,4 +40,3 @@ listint_t *insert_node(listint_t **head, int number)
 
     return new;
 }
-
