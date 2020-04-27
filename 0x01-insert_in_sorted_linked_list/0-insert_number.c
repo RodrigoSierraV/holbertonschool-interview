@@ -19,6 +19,12 @@ listint_t *insert_node(listint_t **head, int number)
         *head = new;
         return new;
     }
+    if (new->n < current->n)
+    {
+        new->next = current;
+        *head = new;
+        return new;
+    }
     while (current != NULL)
     {
         if (current->next && new->n < current->next->n)
@@ -26,7 +32,6 @@ listint_t *insert_node(listint_t **head, int number)
             new->next = current->next;
             current->next = new;
             break;
-            printf("%i linked %i number\n", current->next->n, number);
         }
         if (current->next == NULL)
             current->next = new;
@@ -35,4 +40,3 @@ listint_t *insert_node(listint_t **head, int number)
 
     return new;
 }
-
