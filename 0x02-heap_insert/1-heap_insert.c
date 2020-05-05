@@ -1,17 +1,26 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_size - function that measures the size of a binary tree
- * @tree: pointer to the root node of the tree to delete
- * Return: the size of the tree
+ * heap_h - measures the height of a node in a binary tree
+ * @heap: pointer to the node to measure the height
+ * Return: tree is NULL, return 0
  */
 
-int heap_size(const heap_t *heap)
+int heap_h(heap_t *heap)
 {
+	int left_hight = 0;
+	int right_hight = 0;
 
 	if (!heap)
 		return (0);
-	return (heap_size(heap->left) + 1 + heap_size(heap->right));
+
+	if (heap->left)
+		left_hight = 1 + heap_h(heap->left);
+
+	if (heap->right)
+		right_hight = 1 + heap_h(heap->right);
+
+	return ((left_hight > right_hight) ? left_hight : right_hight);
 }
 
 /**
@@ -37,19 +46,20 @@ int heap_is_full(const heap_t *heap)
 }
 
 /**
- * heap_insert - function that checks if a binary tree is full
+ * heap_find_node - function that checks if a binary tree is full
  * @heap: pointer to the node to count the number of nodes
  * Return: 0 or 1 if tree is full
  */
 heap_t *heap_find_node(heap_t *heap)
 {
-	
 	if (heap->left && !heap->right)
 		return (heap);
 	if (!heap->left && heap->right)
 		return (heap);
-	heap_is_full(heap->left);
-	heap_is_full(heap->right);
+	if (heap_is_full(heap->left) &&
+		heap_is_full(heap->right))
+	return (heap);
+	return (heap);
 }
 
 /**
@@ -63,7 +73,7 @@ heap_t *heap_find_node(heap_t *heap)
 heap_t *heap_insert(heap_t **root, int value)
 {
 	heap_t *new, *current, *insert;
-	int complete;
+	int complete, size;
 
 	new = malloc(sizeof(heap_t));
 	if (!new)
@@ -78,6 +88,7 @@ heap_t *heap_insert(heap_t **root, int value)
 		return (new);
 	}
 	complete = heap_is_full(*root);
+	size = heap_h(*root);
 	current = *root;
 	if (complete == 1)
 	{
@@ -92,6 +103,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	{
 
 		insert = heap_find_node(current);
+		printf("%d AAAAAAAAAAAAQQQUIIIIIIIIII %d\n", size, insert->n);
 		new->parent = insert;
 		if (insert->left)
 			insert->right = new;
