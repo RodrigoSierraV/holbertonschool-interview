@@ -1,0 +1,5 @@
+This project is intended to solve 3 x 3 sandpiles:
+
+	The Abelian sandpile model, also known as the Bak–Tang–Wiesenfeld model, was the first discovered example of a dynamical system displaying self-organized criticality. It was introduced by Per Bak, Chao Tang and Kurt Wiesenfeld in a 1987 paper.[1]
+
+	The model is a cellular automaton. In its original formulation, each site on a finite grid has an associated value that corresponds to the slope of the pile. This slope builds up as "grains of sand" (or "chips") are randomly placed onto the pile, until the slope exceeds a specific threshold value at which time that site collapses transferring sand into the adjacent sites, increasing their slope. Bak, Tang, and Wiesenfeld considered process of successive random placement of sand grains on the grid; each such placement of sand at a particular site may have no effect, or it may cause a cascading reaction that will affect many sites. 
