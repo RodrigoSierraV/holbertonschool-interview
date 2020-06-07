@@ -1,5 +1,7 @@
 #!/usr/bin/python3
+""" Module that parse a log """
 import sys
+
 
 count = 0
 codes_dict = {'200': 0, '301': 0, '400': 0, '401': 0,
