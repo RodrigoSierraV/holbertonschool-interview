@@ -10,18 +10,20 @@ file_size = 0
 
 try:
     for line in sys.stdin:
-        count += 1
         list_line = line.split()
-        code = list_line[-2]
-        line_size = int(list_line[-1])
-        codes_dict[code] += 1
-        file_size += line_size
+        if len(list_line) > 2:
+            count += 1
+            code = list_line[-2]
+            line_size = int(list_line[-1])
+            if code in codes_dict:
+                codes_dict[code] += 1
+            file_size += line_size
         if count % 10 == 0:
             print('File size: {}'.format(file_size))
             for k, v in sorted(codes_dict.items()):
                 if v > 0:
                     print('{}: {}'.format(k, v))
-except KeyboardInterrupt:
+finally:
     print('File size: {}'.format(file_size))
     for k, v in sorted(codes_dict.items()):
         if v > 0:
