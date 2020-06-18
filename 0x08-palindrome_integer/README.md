@@ -1,0 +1,4 @@
+This projec is intended to determine if a number is palidrome:
+	A palindrome is a word, number, phrase, or other sequence of characters which reads the same backward as forward, such as madam, racecar. There are also numeric palindromes, including date/time stamps using short digits 11/11/11 11:11 and long digits 02/02/2020. Sentence-length palindromes may be written when allowances are made for adjustments to capital letters, punctuation, and word dividers, such as "A man, a plan, a canal, Panama!".
+
+	The word palindrome was first published by Henry Peacham in his book, The Truth of Our Times (1638). It is derived from the Greek roots palin (πάλιν; "again") and dromos (δρóμος; "way, direction"); however, the Greek language uses a different word, καρκινικός 'carcinic' (lit. crab-like) to refer to letter-by-letter reversible writing.
