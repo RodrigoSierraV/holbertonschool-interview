@@ -14,7 +14,7 @@ def validUTF8(data):
     for i in range(len(bins)):
         if bins[i][0] == '0':
             continue
-        if bins[i][:3] == '110' and bins[i+1][:2] == '10':
+        elif bins[i][:3] == '110' and bins[i+1][:2] == '10':
             continue
         elif bins[i][:4] == '1110' and bins[i+1][:2] == '10'\
                 and bins[i+2][:2] == '10':
