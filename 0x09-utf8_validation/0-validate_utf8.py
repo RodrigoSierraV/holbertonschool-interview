@@ -9,22 +9,13 @@ def validUTF8(data):
     The data will be represented by a list of integers
     Return: True if data is a valid UTF-8 encoding, else return False
     """
+    counter = 0
     bins = list(map(lambda x: "{:08b}".format(x), data))
-    utf8 = True
-    for i in range(len(bins)):
-        if bins[i][0] == '0':
-            continue
-        elif bins[i][:3] == '110' and bins[i+1][:2] == '10':
-            continue
-        elif bins[i][:4] == '1110' and bins[i+1][:2] == '10'\
-                and bins[i+2][:2] == '10':
-            continue
-        elif bins[i][:5] == '11110' and bins[i+1][:2] == '10' and\
-                bins[i+2][:2] == '10' and bins[i+3][:2] == '10':
-            continue
-        elif bins[i][:2] == '10':
-            continue
-        else:
-            utf8 = False
-
-    return utf8
+    for b in bins:
+        if counter != 0:
+            counter -= 1
+            if b[:2] != '10':
+                return False
+        elif b[0] == '1':
+            counter = len(b.split('0')[0]) - 1
+    return True
