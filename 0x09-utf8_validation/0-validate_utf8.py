@@ -10,7 +10,7 @@ def validUTF8(data):
     Return: True if data is a valid UTF-8 encoding, else return False
     """
     counter = 0
-    bins = list(map(lambda x: "{:08b}".format(x), data))
+    bins = [bin(b).replace('0b', '').rjust(8, '0') for b in data]
     for b in bins:
         if counter != 0:
             counter -= 1
