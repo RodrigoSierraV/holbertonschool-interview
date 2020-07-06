@@ -1,10 +1,8 @@
 #include "menger.h"
 
 /**
- * menger - Function menger
- *
- * @level: level of deep in Merge Sponge
- *
+ * menger - creates a sierpinski carpet
+ * @level: level of the sierpinski carpet
  * Return: None
  */
 void menger(int level)
