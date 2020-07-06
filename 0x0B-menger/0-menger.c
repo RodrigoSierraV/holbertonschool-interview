@@ -16,7 +16,7 @@ void menger(int level)
 
 	for (i = 0; i < level; i++)
 		side *= 3;
-	for (i = 0; i < side && level > 0; i++)
+	for (i = 0; i < side; i++)
 	{
 		for (j = 0; j < side; j++)
 		{
