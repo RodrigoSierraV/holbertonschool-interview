@@ -10,13 +10,16 @@ void menger(int level)
 	int side = 1, i, j, x, y;
 
 	if (level == 0)
+	{
 		printf("#\n");
+		return;
+	}
 	else if (level < 0)
 		return;
 
 	for (i = 0; i < level; i++)
 		side *= 3;
-	for (i = 0; i < side && level > 0; i++)
+	for (i = 0; i < side; i++)
 	{
 		for (j = 0; j < side; j++)
 		{
