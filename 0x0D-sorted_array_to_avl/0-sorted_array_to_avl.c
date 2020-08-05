@@ -28,28 +28,26 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
  */
 avl_t *array_to_avl(size_t left, size_t right, int *array, avl_t *avl_tree)
 {
-	avl_t *right_node, *left_node;
 	size_t mid;
+	avl_t *root;
 
-	if (!avl_tree)
+	if (left > right)
 		return (NULL);
+
 	mid = (left + right) / 2;
-	avl_tree->n = array[mid];
-	right_node = new_node();
-	right_node->parent = avl_tree;
-	if (mid > left && mid < right)
-	{
-		left_node = new_node();
-		left_node->parent = avl_tree;
-		avl_tree->left = array_to_avl(left, mid - 1, array, left_node);
-		avl_tree->right = array_to_avl(mid + 1, right, array, right_node);
-	}
-	else if (mid + 1 == right)
-	{
-		avl_tree->right = right_node;
-		right_node->n = array[right];
-	}
-	return (avl_tree);
+	root = new_node();
+	root->parent = avl_tree;
+	root->n = array[mid];
+	if (!root)
+		return (NULL);
+
+	if (mid != left)
+		root->left = array_to_avl(left, mid - 1, array, root);
+
+	if (mid != right)
+		root->right = array_to_avl(mid + 1, right,array, root);
+
+	return (root);
 }
 
 /**
