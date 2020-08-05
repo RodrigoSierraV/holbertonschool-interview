@@ -45,7 +45,7 @@ avl_t *array_to_avl(size_t left, size_t right, int *array, avl_t *avl_tree)
 		root->left = array_to_avl(left, mid - 1, array, root);
 
 	if (mid != right)
-		root->right = array_to_avl(mid + 1, right,array, root);
+		root->right = array_to_avl(mid + 1, right, array, root);
 
 	return (root);
 }
