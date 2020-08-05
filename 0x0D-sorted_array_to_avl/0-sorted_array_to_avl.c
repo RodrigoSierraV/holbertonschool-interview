@@ -15,7 +15,6 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 		return (NULL);
 	avl_tree = new_node();
 	avl_tree = array_to_avl(0, size - 1, array, avl_tree);
-
 	return (avl_tree);
 }
 
@@ -34,10 +33,10 @@ avl_t *array_to_avl(size_t left, size_t right, int *array, avl_t *avl_tree)
 
 	if (!avl_tree)
 		return (NULL);
-    mid = (left + right) / 2;
+	mid = (left + right) / 2;
 	avl_tree->n = array[mid];
-    right_node = new_node();
-    right_node->parent = avl_tree;
+	right_node = new_node();
+	right_node->parent = avl_tree;
 	if (mid > left && mid < right)
 	{
 		left_node = new_node();
@@ -60,13 +59,12 @@ avl_t *array_to_avl(size_t left, size_t right, int *array, avl_t *avl_tree)
 avl_t *new_node()
 {
 	avl_t *node;
-    
-    node = malloc(sizeof(avl_t));
+
+	node = malloc(sizeof(avl_t));
 	if (node == NULL)
 		return (NULL);
-
 	node->left = NULL;
-    node->parent = NULL;
-    node->right = NULL;
+	node->parent = NULL;
+	node->right = NULL;
 	return (node);
 }
