@@ -1,18 +1,16 @@
 #include "search_algos.h"
-#include <unistd.h>
 
 /**
- * advanced_binary - searches for a value in a sorted array
- * of integers using the Binary search algorithm - always the first one
+ * advanced_binary - searches the index of a value in a sorted array
  * @array:  pointer to the first element of the array to search in
  * @size: number of elements in array
- * @value: value to search for
+ * @value: value to search
  * Return:  index where value is located otherwise -1
  *
  **/
 int advanced_binary(int *array, size_t size, int value)
 {
-	int max = size - 1, min = 0, guess = (max + min) / 2;
+	int min = 0, guess = (size - 1) / 2, index;
 	size_t i = 1;
 
 	if (array == NULL || size == 0)
@@ -21,26 +19,23 @@ int advanced_binary(int *array, size_t size, int value)
 	while (i < size)
 		printf(", %d", array[i++]);
 	printf("\n");
-	while (min != max && min < max)
+	if (size == 1 && array[0] != value)
+		return (-1);
+	if (array[guess] == value)
 	{
-		if (array[guess] == value)
-		{
-			if (array[guess - 1] == value)
-				guess -= 1;
-			else
-				return (guess);
-		}
-		else if (array[guess] > value)
-		{
-			max = guess - 1;
-			guess = (max + min) / 2;
-		}
-		else if (array[guess] < value)
-		{
-			min = guess + 1;
-			guess = (max + min) / 2;
-		}
-		sleep(2);
+		if (guess == 0 || (array[guess - 1] < value))
+			return (guess);
 	}
+	if (array[guess] < value)
+	{
+		min += guess + 1;
+		array += min;
+		if (size % 2 != 0)
+			guess--;
+	}
+	guess++;
+	index = advanced_binary(array, guess, value);
+	if (index != -1)
+		return (index + min);
 	return (-1);
 }
