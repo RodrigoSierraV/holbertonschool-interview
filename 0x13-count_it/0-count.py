@@ -4,6 +4,8 @@ import requests
 
 
 def count_words(subreddit, word_list, after="", to_print={}):
+    """ Recursive function that queries the Reddit API"""
+
     if not after:
         for word in word_list:
             to_print[word] = 0
