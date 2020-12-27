@@ -20,13 +20,10 @@ typedef struct binary_tree_s
 	struct binary_tree_s *left;
 	struct binary_tree_s *right;
 } binary_tree_t;
-
-void binary_tree_print(const binary_tree_t *);
-
 typedef struct binary_tree_s binary_tree_t;
-
 typedef struct binary_tree_s heap_t;
 
+void binary_tree_print(const binary_tree_t *);
 int heap_extract(heap_t **root);
 void last_node(heap_t *tree, heap_t **node, size_t h, size_t level);
 size_t heap_height(const heap_t *tree);
