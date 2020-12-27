@@ -1,8 +1,5 @@
 #include "binary_trees.h"
 
-void last_node(heap_t *tree, heap_t **node, size_t h, size_t level);
-size_t heap_height(const heap_t *tree);
-
 /**
  * heap_extract - extracts the root node from a Max Binary Heap
  * @root: pointer to the heap root
