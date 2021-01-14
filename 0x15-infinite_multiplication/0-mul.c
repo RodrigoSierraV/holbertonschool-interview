@@ -82,7 +82,7 @@ int str_len(char *s)
 /**
  * check_digits - checks all digits in string
  * @s: Pointer to string
- * len: length of s
+ * @len: length of s
  * Return: pointer to int
  */
 int *check_digits(char *s, int len)
