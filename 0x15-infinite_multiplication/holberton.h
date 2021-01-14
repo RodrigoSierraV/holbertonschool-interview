@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 
+int main(int argc, char *argv[]);
 int _putchar(char c);
 void error(void);
 int *check_digits(char *s, int len);
