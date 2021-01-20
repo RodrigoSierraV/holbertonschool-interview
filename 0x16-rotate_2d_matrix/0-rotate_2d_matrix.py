@@ -11,6 +11,5 @@ def rotate_2d_matrix(matrix):
     m1 = [x[:] for x in matrix]
     for i, z in zip(reversed(range(len(matrix))), range(len(matrix))):
         for j in range(len(matrix)):
-            print(z, j, '-', j, i, m1[z][j])
             new_int = m1[z][j]
             matrix[j][i] = new_int
